@@ -105,6 +105,8 @@
             {
                 Console.WriteLine($"Producto: {productos[i]} - Precio: {precios[i]}");
             }
+            Console.WriteLine();
+
         }
 
         // Metodo para buscar un producto en especifico
@@ -121,13 +123,12 @@
                 Console.WriteLine("Producto encontrado");
                 Console.WriteLine($"Producto: {productos[indice]}");
                 Console.WriteLine($"Precio: {precios[indice]}");
-                Console.WriteLine();
             }
             else
             {
                 Console.WriteLine("Producto no encontrado");
-                Console.WriteLine();
             }
+            Console.WriteLine();
 
         }
 
@@ -168,6 +169,8 @@
             {
                 Console.WriteLine("Producto no encontrado");
             }
+            Console.WriteLine();
+
         }
 
         // Metodo para eliminar un producto
@@ -187,6 +190,8 @@
             {
                 Console.WriteLine("Producto no encontrado");
             }
+            Console.WriteLine();
+
         }
 
         // Metodo para mostrar las estadisticas de los productos
@@ -208,7 +213,8 @@
             {
                 Console.WriteLine("No hay productos disponibles, no es posible realizar las estadisticas");
             }
-            
+            Console.WriteLine();
+
         }
 
         // Metodo para ordenar los productos
@@ -229,6 +235,7 @@
             }
 
             Console.WriteLine("Inventario ordenado correctamente.");
+            Console.WriteLine();
         }
 
     }
