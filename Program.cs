@@ -8,8 +8,33 @@
             Console.WriteLine();
 
             // Declaración de las listas
-            List<string> productos = new List<string> { "Arroz", "Aceite", "Harina", "Pan", "Queso", "Mantequilla" };
-            List<double> precios = new List<double> { 40, 25, 45, 10, 35, 15 };
+            Console.Write("Cuantos productos deseas agregar? ");
+            int cantidad = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+            List<string> productos = new List<string>();
+            List<double> precios = new List<double>();
+
+            // Agregar productos a las listas
+            for (int i = 0; i < cantidad; i++)
+            {
+                Console.Write($"Nombre del producto {i + 1}: ");
+                string producto = Console.ReadLine();
+
+                Console.Write($"Precio del producto {i + 1}: ");
+                double precio = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine();
+
+                if (precio > 0)
+                {
+                    productos.Add(producto);
+                    precios.Add(precio);
+                }
+                else
+                {
+                    Console.WriteLine("Has introducido un precio no valido, vuelvalo a intentar");
+                    cantidad += 1; // Incrementar la cantidad para permitir que el usuario vuelva a ingresar un producto
+                }
+            }
 
             // Mostrando el menu y que pasaria si el usuario elige opción "x".
             int opcion = 0;
@@ -70,9 +95,9 @@
                         break;
                 }
             } while (opcion != 0);
-            
 
-            
+
+
         }
         // Metodos del programa...
 
@@ -89,7 +114,7 @@
             {
                 productos.Add(producto);
                 precios.Add(precio);
-            } 
+            }
             else
             {
                 Console.WriteLine("Has introducido un precio no valido, vuelvalo a intentar");
@@ -150,8 +175,8 @@
                 Console.Write("Ingrese el nombre del producto a modificar: ");
                 string productoModificado = Console.ReadLine();
 
-                Console.Write("Ingrese el precio del producto a modificar");
-                int precioModificado = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Ingrese el precio del producto a modificar: ");
+                double precioModificado = Convert.ToDouble(Console.ReadLine());
 
                 if (precioModificado > 0)
                 {
