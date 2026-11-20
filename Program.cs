@@ -101,6 +101,7 @@
             {
                 productos.Add(producto);
                 precios.Add(precio);
+                Console.WriteLine("Producto agregado correctamente");
             }
             else
             {
@@ -206,6 +207,7 @@
             {
                 productos.Remove(productoAEliminar);
                 precios.Remove(precios[indice]);
+                Console.WriteLine("Producto eliminado correctamente");
             }
             else
             {
