@@ -6,26 +6,38 @@ La Tiendita Mengeche necesitaba una aplicación de consola para gestionar su inv
 
 ## Imagenes del proyecto
 
-Como se ve el menú
+### Como se ve el menú
+
 ![Visualización del menú](/img/Screenshot%202026-11-20%20120917.png)
 
-Agregando un producto
+### Agregando un producto
+
 ![Agregando un producto](/img/Screenshot%202026-11-20%20121112.png)
 
-Mostrando los productos
+### Mostrando los productos
+
 ![Mostrando los productos](/img/Screenshot%202026-11-20%20121144.png)
 
-Buscando un producto
+### Buscando un producto
+
 ![Busqueda de un producto](/img/Screenshot%202026-11-20%20121223.png)
 
-Modificando un producto
+### Modificando un producto
+
 ![Como se modifica un producto](/img/Screenshot%202026-11-20%20121345.png)
 
-Eliminando un producto y de paso mostrando que pasaría si la lista se encuentra vacia
+### Eliminando un producto y de paso mostrando que pasaría si la lista se encuentra vacia
+
 ![Eliminar un producto](/img/Screenshot%202026-11-20%20121702.png)
 
-Mostrando estadisticas
+### Mostrando estadisticas
+
 ![Mostrar las estadisticas](/img/Screenshot%202026-11-20%20121907.png)
 
-Ordenando la lista
+### Ordenando la lista
+
 ![Como se ordena la lista](/img/Screenshot%202026-11-20%20121940.png)
+
+## Autor
+
+Rusbel De La Rosa Muñoz
