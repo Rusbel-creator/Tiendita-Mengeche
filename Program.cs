@@ -8,35 +8,10 @@
             Console.WriteLine();
 
             // Declaración de las listas
-            Console.Write("Cuantos productos deseas agregar? ");
-            int cantidad = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
             List<string> productos = new List<string>();
             List<double> precios = new List<double>();
 
-            // Agregar productos a las listas
-            for (int i = 0; i < cantidad; i++)
-            {
-                Console.Write($"Nombre del producto {i + 1}: ");
-                string producto = Console.ReadLine();
-
-                Console.Write($"Precio del producto {i + 1}: ");
-                double precio = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine();
-
-                if (precio > 0)
-                {
-                    productos.Add(producto);
-                    precios.Add(precio);
-                }
-                else
-                {
-                    Console.WriteLine("Has introducido un precio no valido, vuelvalo a intentar");
-                    cantidad += 1; // Incrementar la cantidad para permitir que el usuario vuelva a ingresar un producto
-                }
-            }
-
-            // Mostrando el menu y que pasaria si el usuario elige opción "x".
+            // Mostrando el menu.
             int opcion = 0;
 
             do
@@ -83,7 +58,7 @@
                         break;
 
                     case 7:
-                        OrdenarProductos(productos ,precios);
+                        OrdenarProductos(productos, precios);
                         break;
 
                     case 0:
@@ -107,17 +82,30 @@
             Console.Write("Nombre del producto: ");
             string producto = Console.ReadLine();
 
+            if (producto == "")
+            {
+                Console.WriteLine("El nombre del producto no puede estar vacio, ingrese de nuevo");
+                Console.WriteLine();
+                return;
+            }
+
             Console.Write("Precio del producto: ");
             double precio = Convert.ToDouble(Console.ReadLine());
 
-            if (precio > 0)
+            if (productos.Contains(producto))
+            {
+                Console.WriteLine("El producto ya existe, ingresa otro");
+                Console.WriteLine();
+            }
+            else if (precio > 0)
             {
                 productos.Add(producto);
                 precios.Add(precio);
             }
             else
             {
-                Console.WriteLine("Has introducido un precio no valido, vuelvalo a intentar");
+                Console.WriteLine("El precio no es valido, ingrese de nuevo");
+                Console.WriteLine();
             }
 
             Console.WriteLine();
@@ -126,10 +114,18 @@
         // Metodo para mostrar una lista de los productos
         static void MostrarProductos(List<string> productos, List<double> precios)
         {
-            for (int i = 0; i < productos.Count; i++)
+            if (productos.Count != 0)
             {
-                Console.WriteLine($"Producto: {productos[i]} - Precio: {precios[i]}");
+                for (int i = 0; i < productos.Count; i++)
+                {
+                    Console.WriteLine($"Producto: {productos[i]} - Precio: {precios[i]}");
+                }
             }
+            else
+            {
+               Console.WriteLine("La lista esta vacia");
+            }
+            
             Console.WriteLine();
 
         }
@@ -157,7 +153,7 @@
 
         }
 
-        // Metodo para modificar un producto ya exitente
+        // Metodo para modificar un producto ya existente
         static void ModificarProducto(List<string> productos, List<double> precios)
         {
             Console.WriteLine("Ingresa el nombre del producto que deseas modificar");
@@ -236,7 +232,7 @@
             }
             else
             {
-                Console.WriteLine("No hay productos disponibles, no es posible realizar las estadisticas");
+                Console.WriteLine("La lista esta vacia");
             }
             Console.WriteLine();
 
@@ -245,22 +241,32 @@
         // Metodo para ordenar los productos
         static void OrdenarProductos(List<string> productos, List<double> precios)
         {
-            var productosOrdenados = productos
-                .Select((nombre, indice) => new { Nombre = nombre, Precio = precios[indice] })
-                .OrderBy(p => p.Nombre)
-                .ToList();
-
-            productos.Clear();
-            precios.Clear();
-
-            foreach (var producto in productosOrdenados)
+            if (productos.Count != 0)
             {
-                productos.Add(producto.Nombre);
-                precios.Add(producto.Precio);
-            }
+                var productosOrdenados = productos
+                    .Select((nombre, indice) => new { Nombre = nombre, Precio = precios[indice] })
+                    .OrderBy(p => p.Nombre)
+                    .ToList();
 
-            Console.WriteLine("Inventario ordenado correctamente.");
-            Console.WriteLine();
+                productos.Clear();
+                precios.Clear();
+
+                foreach (var producto in productosOrdenados)
+                {
+                    productos.Add(producto.Nombre);
+                    precios.Add(producto.Precio);
+                }
+
+                Console.WriteLine("Inventario ordenado correctamente.");
+                Console.WriteLine();
+            } 
+            else
+            {
+                Console.WriteLine("No hay productos disponibles, no es posible ordenar el inventario");
+                Console.WriteLine();
+                return;
+            }
+            
         }
 
     }
